@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual C# Express 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RpnParser", "RpnParser.csproj", "{7C562324-E266-45D6-B167-033D7808FAAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dalldorf.Expressions", "Dalldorf.Expressions.csproj", "{7C562324-E266-45D6-B167-033D7808FAAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dalldorf.Expressions.UnitTests", "..\RpnParser.UnitTests\Dalldorf.Expressions.UnitTests.csproj", "{D3DF7340-28AB-4389-8F06-6F2A337B8399}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,10 @@ Global
 		{7C562324-E266-45D6-B167-033D7808FAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C562324-E266-45D6-B167-033D7808FAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C562324-E266-45D6-B167-033D7808FAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DF7340-28AB-4389-8F06-6F2A337B8399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DF7340-28AB-4389-8F06-6F2A337B8399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DF7340-28AB-4389-8F06-6F2A337B8399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DF7340-28AB-4389-8F06-6F2A337B8399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

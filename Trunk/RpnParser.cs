@@ -4,7 +4,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 //-------------------------------------------------------------------------------
 // Unit: RpnParser
-// Copyright (c) 2005 Troy Dalldorf
 // Date: 04/22/2005
 // Purpose: Evaluation string expressions returning a single result value.
 // Supported Arithmetic Operators: + - / * %
@@ -33,17 +32,24 @@ using System.Text.RegularExpressions;
 //2. Change IOperand.Compatible to IOperand.ResultOprand(operand)
 //3. Along with 2, allow morphable types, an int should become a long in a long operation.
 
-namespace Troy.Expressions
+namespace Dalldorf.Expressions
 {
     public delegate object GetValueDelegate(object sender, string name);
 
 	#region RPN
+
 	/// <summary>
 	/// Summary description for RPNParser.
 	/// </summary>
 	public class RpnParser
 	{
         private ArrayList _compiledExpression;
+
+        public object Evaluate(string expression)
+        {
+            Compile(expression);
+            return EvaluateRpn(null, null);
+        }
 
 		public object Evaluate(string expression, object sender, GetValueDelegate getValueMethod)
 		{
@@ -76,7 +82,7 @@ namespace Troy.Expressions
 		/// </summary>
 		/// <param name=expression></param>
 		/// 		
-		public void Compile(string expression)
+		private void Compile(string expression)
 		{
 			Stack operatorStack = new Stack();
 			_compiledExpression = new ArrayList();
@@ -157,14 +163,13 @@ namespace Troy.Expressions
 
 		#endregion
 
-		public string Convert2String(ArrayList arrExpr) //todo - string builder
+		private string Convert2String(ArrayList arrExpr) 
 		{
-			string result = "";
-			foreach(object obj in arrExpr)
-				result += obj.ToString();
-			return result;
+            StringBuilder builder = new StringBuilder();
+            foreach (object obj in arrExpr)
+                builder.Append(obj);
+			return builder.ToString();
 		}
-
 
 		#region RPN_Evaluator
 
@@ -348,6 +353,7 @@ namespace Troy.Expressions
 	#endregion
 
 	#region Interfaces
+
 	public interface IOperand
     {
         object Value { get; set; }
@@ -393,6 +399,7 @@ namespace Troy.Expressions
 		IOperand OR(IOperand rhs);
 		IOperand AND(IOperand rhs);
 	}
+
 	#endregion
 
 	#region Operands
